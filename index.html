@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>肖茗君的个人网页</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+    <style>
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+
+    /*div.one{
+        height:1200px;
+        background: greenyellow;
+    } */
+    .fix{
+        width:30px;
+        height:70px;
+        background: salmon;
+        position: fixed;
+        z-index: 100;
+        bottom:100px;
+        right:10px;
+        border-radius: 50%;
+        display: none;
+    }
+
+    a{
+        color: inherit;
+        text-decoration: none;
+    }
+    .beijing{
+        width: auto;height: auto;
+        background:-webkit-linear-gradient(left,rgba(17,250,187,1)0%,rgba(3,128,243,1)100%);
+        overflow: auto;
+    }
+    .img1{
+        width: auto;height: auto;
+        margin-left: 100px;margin-top: 40px;
+        position: absolute;
+        z-index: 2;
+    }
+    .img1 img{
+        width: 280px;height: 350px;
+        border: white solid 12px;
+        border-radius: 5%;
+        opacity: 0.2;
+        transition: all 10s;
+    }
+    .img1 img:hover{
+        transition: all 3s;
+        opacity: 0.8;
+    }
+    .img2{
+        width: auto;height: auto;
+        margin-left: 298px;margin-top: 307px;
+        position: absolute;
+        z-index: 1;
+    }
+    .img2 img{
+        width: 450px;height:265px;
+        border: white solid 12px;
+        border-radius: 5%;
+    }
+    .x1{
+        overflow: auto;
+    }
+    .daohang{
+        height: auto;width: auto;
+        color:#fff;font-size: 30px;
+        padding: 10px;
+        margin-right: 50px;  margin-top: 20px;
+        float: right;
+    }
+    .daohang a{
+        margin-left: 20px;
+        font-weight: bold;
+        padding-left: 20px;
+        border-left: 7px solid #f9906f;
+    }
+    .x2{
+        overflow: auto;
+    }
+    .name{
+        height: auto;width: auto;
+        border-left: white solid 6px;
+        border-top: white solid 6px;
+        border-radius: 50%;
+        color:#fff;font-size: 35px;
+        margin-right: 60px;margin-top: 50px;
+        padding: 10px 150px;
+        float: right;
+    }
+    .x3{
+        color:#f9906f;
+        margin-top: 20px;
+        text-shadow: 10px -10px 15px #333;
+    }
+    .x4{
+        overflow: auto;
+    }
+    .jieshao{
+        height: auto;width: 280px;
+        color:#fff;font-size: 20px;
+        margin: 20px 60px;
+        float: right;
+        text-shadow: 10px 10px 15px #333;
+    }
+    .g1{
+        margin-top: 30px;
+    }
+    .g2{
+        margin-top: 20px;
+    }
+    .g3{
+        margin-top: 20px;
+    }
+    .g4{
+        margin-top: 20px;
+    }
+    .about{
+        width: auto;height: auto;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        margin-top: 200px;
+        margin-bottom: 40px;
+        text-shadow: 10px 10px 15px #333;
+    }
+    .aboutx{
+        width: auto;height: auto;
+        margin-left: auto;margin-right: auto;
+    }
+    .about1{
+        width: auto;height: auto;
+        border: black solid 1px;
+        border-radius: 15px;
+        float: right;
+        overflow: auto;
+        background: #fff;
+        margin-right: 20px;
+    }
+    .about2{
+        width: 400px;height: auto;
+        text-align: center;
+        color: #1685a9;
+        padding-top: 60px;
+        float: left;
+        line-height: 40px;
+        font-size: 18px;
+    }
+    .about3{
+        width: 400px;height: auto;
+        background: #fff;
+        text-align: center;
+        color: #1685a9;
+        float:left;
+    }
+    .about3 img{
+        width: 400px;height: 300px;
+        float: right;
+    }
+    .about4{
+        width: auto;height: auto;
+        border: black solid 1px;
+        border-radius: 15px;
+        float: left;
+        overflow: auto;
+        background: #fff;
+        margin-left: 20px;
+    }
+    .about5{
+        width: 400px;height: auto;
+        text-align: center;
+        color: #1685a9;
+        padding-top: 60px;
+        float: left;
+        line-height: 40px;
+        font-size: 18px;
+    }
+    .about6{
+        width: 400px;height: auto;
+        background: #fff;
+        text-align: center;
+        color: #1685a9;
+        float:left;
+    }
+    .about6 img{
+        width: 400px;height: 300px;
+        float: right;
+    }
+    .education{
+        width: auto;height: auto;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        margin-top: 800px;
+        margin-bottom: 40px;
+        text-shadow: 10px 10px 15px #333;
+    }
+    .jiaoyu{
+        width: 1000px;height: auto;
+        background: #fff;
+        overflow: auto;
+        margin-left: 200px;
+        border-radius: 5%;
+        
+    }
+    .xiaoxue{
+        color: #111;
+        font-size: 15px;
+        float: left;
+        overflow: auto;
+        margin-right: 30px;margin-left: 75px;margin-top: 20px;
+        line-height: 40px;
+    }
+    .chuzhong{
+        color: #111;
+        font-size: 15px;
+        float: left;
+        overflow: auto;
+        margin-right: 30px;margin-top: 20px;
+        line-height: 40px;
+    }
+    .gaozhong{
+        color: #111;
+        font-size: 15px;
+        float: left;
+        overflow: auto;
+        margin-right: 30px;margin-top: 20px;
+        line-height: 40px;
+    }
+    .daxue{
+        color: #111;
+        font-size: 15px;
+        margin-top: 20px;
+        float: left;
+        overflow: auto;
+        line-height: 40px;
+    }
+    .skill{
+        text-align: center;
+        width: auto;height: auto;
+        color: #fff;
+        font-weight: bold;
+        margin-top: 220px;margin-bottom: 40px;
+        text-shadow: 10px 10px 15px #333;
+    }
+    .skill-1{
+        width: 1000px;height: auto;
+        margin-left: 300px;
+        overflow: auto;   
+        padding-bottom: 61px;
+    }
+    .skill-2{
+        width: auto;height: auto;
+        border: #fff solid 6px;
+        color: #fff;
+        float: left;
+        padding-left: 20px;padding-right: 20px;
+        padding-top: 10px;padding-bottom: 10px;
+        line-height: 60px;
+        overflow: auto;  
+        margin-top: 20px;
+        box-shadow: 10px 10px 15px 5px #333;
+    }
+    .skill-3{
+        width: auto;height: auto;
+        border: #fff solid 6px;
+        color: #fff;
+        float: left;
+        padding-left: 20px;padding-right: 20px;margin-left: 80px;
+        padding-top: 10px;padding-bottom: 10px;
+        line-height: 60px;
+        margin-top: 0px;
+        overflow: auto;  
+        box-shadow: 10px 10px 15px 5px #333;
+    }
+    .skill-3>a{
+        border: #fff dotted 1px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .skill-4{
+        width: auto;height: auto;
+        border: #fff solid 6px;
+        color: #fff;
+        float: left;
+        padding-left: 20px;padding-right: 20px;margin-left: 80px;
+        padding-top: 20px;padding-bottom: 20px;
+        line-height: 60px;
+        overflow: auto;  
+        margin-top: 30px;
+        box-shadow: 10px 10px 15px 5px #333;
+    }
+    .hobity{
+        text-align: center;
+        width: auto;height: auto;
+        color: #fff;
+        font-weight: bold;
+        margin-top: 220px;margin-bottom: 40px;
+        text-shadow: 10px 10px 15px #333;
+    }
+    .hobity-3{
+        width: auto;height: auto;
+        overflow: auto;
+        float: left;
+        padding-left: 180px;
+    }
+    .hobity-1{
+        width: auto;height: auto;
+        float: left;
+    }
+    .hobity-1 img{
+        border: #fff solid 1px;
+        border-radius: 50%;
+        float: left;
+    }
+    .hobity-2{
+        color:salmon;
+        width: auto;height: auto;
+        float: right;
+        padding-top: 80px;padding-left: 60px;
+    }
+    .hobity-4{
+        width: auto;height: auto;
+        overflow: auto;
+        float: right;
+        padding-left: 180px;
+    }
+    .hobity-5{
+        width: auto;height: auto;
+        float: right;
+        margin-right: 160px;
+    }
+    .hobity-5 img{
+        border: #fff solid 1px;
+        border-radius: 50%;
+        float: right;
+    }
+    .hobity-6{
+        color:salmon;
+        width: auto;height: auto;
+        float: left;
+        padding-top: 80px;padding-right: 40px;
+    }
+    .hobity-7{
+        width: auto;height: auto;
+        overflow: auto;
+        float: left;
+        padding-left: 180px;
+    }
+    .hobity-8{
+        width: auto;height: auto;
+        float: left;
+        margin-right: 160px;
+    }
+    .hobity-8 img{
+        border: #fff solid 1px;
+        border-radius: 50%;
+        float: left;
+    }
+    .hobity-9{
+        color:salmon;
+        width: auto;height: auto;
+        float: right;
+        padding-top: 80px;margin-left: -60px;
+    }
+    .show{
+        width: auto;height: 800px;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    .show-f{
+        width: 1200px;height: auto;
+        text-align: center;
+        margin-top: 995px;
+        margin-left: auto;margin-right: auto;
+    }
+    .show-f>p{
+        color: salmon;
+        text-shadow: 10px 10px 5px slateblue;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .show-1 img{
+        width:290px;height: 263px;
+        float: left;
+        margin-right: 10px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 3s;
+    }
+    .show-1 img:hover{
+        transition: all 3s;
+        opacity: 0.8;
+    }
+    .show-2 img{
+        width:290px;height: 263px;
+        float: left;
+        margin-right: 10px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 3s;
+    }
+    .show-2 img:hover{
+        transition: all 3s;
+        opacity: 1;
+    }
+    .show-3 img{
+        width:290px;height: 263px;
+        float: right;
+        margin-right: 10px;margin-left: 10px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 1s;
+    }
+    .show-3 img:hover{
+        transition: all 1s;
+        opacity: 0.8;
+    }
+    .show-4 img{
+        width:290px;height: 263px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 3s;
+    }
+    .show-4 img:hover{
+        transition: all 3s;
+        opacity: 1;
+    }
+    .show-s{
+        width: 1200px;height: auto;
+        text-align: center;
+        margin-top: 20px;
+        margin-left: auto;margin-right: auto;
+    }
+    .show-5 img{
+        width:290px;height: 263px;
+        float: left;
+        margin-right: 10px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 3s;
+    }
+    .show-5 img:hover{
+        transition: all 3s;
+        opacity: 1;
+    }
+    .show-6 img{
+        width:290px;height: 263px;
+        float: left;
+        margin-right: 10px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 2s;
+    }
+    .show-6 img:hover{
+        transition: all 2s;
+        opacity: 1;
+    }
+    .show-7 img{
+        width:290px;height: 263px;
+        float: left;
+        margin-right: 10px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 3s;
+    }
+    .show-7 img:hover{
+        transition: all 3s;
+        opacity: 1;
+    }
+    .show-8 img{
+        width:290px;height: 263px;
+        float: right;
+        margin-right: 10px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 1s;
+    }
+    .show-8 img:hover{
+        transition: all 1s;
+        opacity: 1;
+    }
+    .show-9 img{
+        width:290px;height: 263px;
+        float: right;
+        margin-right: 10px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 1s;
+        margin-top: 25px;
+    }
+    .show-9 img:hover{
+        transition: all 1s;
+        opacity: 1;
+    }
+    .show-10 img{
+        width:290px;height: 263px;
+        float: left;
+        margin-right: 10px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 3s;
+        margin-top: 25px;
+    }
+    .show-10 img:hover{
+        transition: all 3s;
+        opacity: 1;
+    }
+    .show-11 img{
+        width:290px;height: 263px;
+        float: left;
+        margin-right: 10px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 2s;
+        margin-top: 25px;
+    }
+    .show-11 img:hover{
+        transition: all 2s;
+        opacity: 1;
+    }
+    .show-12 img{
+        width:290px;height: 263px;
+        float: left;
+        margin-right: 10px;
+        border-radius: 25%;
+        opacity: 0.2;
+        transition: all 3s;
+        margin-top: 25px;
+    }
+    .show-12 img:hover{
+        transition: all 3s;
+        opacity: 1;
+    }
+
+    </style>
+
+</head>
+<body>
+    <div class="beijing"> 
+        <div class="img1">
+            <img src="images/gallery-2.jpg" alt="">
+        </div>
+        <div class="img2">
+            <img src="images/gallery-4.jpg" alt="">
+        </div>
+     
+        <div class="x1">
+            <div class="daohang">
+                <a href="#">首页</a>
+                <a href="#me">关于我</a>
+                <a href="#edu">教育</a>
+                <a href="#sk">个人技能</a>
+                <a href="#hb">个人爱好</a> 
+            </div>
+        </div>
+        <div class="x2">
+            <div class="name">
+                <h3>肖茗君</h3>
+                <h4 class="x3">Teresa</h4>
+            </div>
+        </div>
+        <div class="x4">
+            <div class="jieshao">
+                <p class="g1">大家好，我是一名计算机专业大三的学生。</p>
+                <p class="g2">美丽善良可爱，爱Hanser  爱nado  爱生活</p>
+                <p class="g3">梦想是：当胡歌经纪人，环游全世界，</p>
+                <p class="g4">之后每天可以躺在床上休息、玩...</p>
+            </div>
+        </div>
+        <div class="about">
+            <h1 id="me" name="me">关于我</h1>
+        </div>
+        <div class="aboutx">
+          <div class="about1">
+            <div class="about2">
+                <p>从小到大，没参加什么大型比赛，<br>没获得啥厉害的奖项，很平淡的前<br>20年。之后的岁月，也希望平平凡<br>凡的过去，不希望什么轰轰烈烈的<br>生活。</p>
+            </div>
+            <div class="about3">
+                <img src="images/gallery-20.jpg" alt="">
+            </div>
+          </div>
+          <div class="about4">
+            <div class="about5">
+                <p>水瓶座，属牛，97年生，现就读于<br>湖北大学之行学院，计算机系，软<br>件工程方向的一名大三女生。有点<br>懒，不爱运动，热爱零食与甜点、<br>冰淇淋。</p>
+            </div>
+            <div class="about6">
+                <img src="images/team-4.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="education">
+                <h1 id="edu" name="edu">个人教育</h1>
+        </div>
+        <div class="jiaoyu">
+            <div class="xiaoxue">
+                <h2>幸福村小学</h2>
+                <h5>2003年-2009年</h5>
+                <h3>这所小学就在我家<br>附近，五分钟路程<br>，虽然当时看起来<br>很小，但却是我童<br>年最珍贵的记忆</h3>
+            </div>
+            <div class="chuzhong">
+                <h2>武汉市第二十七中学</h2>
+                <h5>2009年-2012年</h5>
+                <h3>选择了一所离家很近<br>的中学，几乎从家到<br>学校只需要十分钟，<br>在校期间一直担任<br>学习委员。</h3>
+            </div>
+            <div class="gaozhong">
+                <h2>武汉市第一职业教育中心</h2>
+                <h5>2012年-2015年</h5>
+                <h3>中考失利，为了能够继<br>续接受教育，我选择了<br>职高，幸运的是，这所<br>学校教会了我许多专业知识，<br>丰富了我的高中生活。</h3>
+            </div>
+            <div class="daxue">
+                <h2>湖北大学知行学院</h2>
+                <h5>2015年-至今</h5>
+                <h3>现在是一名计算机系<br>计软1501班的学生，<br>在学院里学习了许多<br>无关专业的知识；并<br>且加入党组织。</h3>
+                </div>
+        </div>
+        <div class="skill">
+                <h1 id="sk" name="sk">个人技能</h1>
+        </div>
+        <div class="skill-1">
+            <div class="skill-2">
+                <h2>Photoshop</h2>
+                <h4>从高中开始接触PS<br>至今都这么久了，<br>这门技术经常丢丢<br>捡捡，不知不觉都<br>六年啦。</h4>
+            </div>
+            <div class="skill-3">
+                <a href="#show">Code</a>
+                <h4>刚刚接触Pcode，因为<br>来到无锡软件园，跟<br>着程老师一起学习，<br>一开始发现挺好玩的，<br>后来对打代码越来越<br>感觉“恶心”！</h4>
+            </div>
+            <div class="skill-4">
+                <h2>Dreamweaver</h2>
+                <h4>刚刚接触DW是大二一门<br>课程，发现不需要太多的<br>去打代码，而是自己设计<br>界面，感觉挺有意思和好<br>玩</h4>
+            </div>
+        </div>
+        <div class="hobity">
+                <h1 id="hb" name="hb">爱好</h1>
+        </div>
+        <div class="hobity-3">
+           <div class="hobity-1">
+            <img src="images/下载.jpg" alt="">
+           </div>
+           <div class="hobity-2">
+            <h1>敲代码(๑•̀ㅂ•́)و✧</h1>
+           </div>
+        </div>
+        <div class="hobity-4">
+           <div class="hobity-5">
+            <img src="images/下载.jpg" alt="">
+           </div>
+           <div class="hobity-6">
+            <h1>敲代码?!Σ(っ °Д °;)っ</h1>
+           </div>
+        </div>
+        <div class="hobity-7">
+            <div class="hobity-8">
+            <img src="images/下载.jpg" alt="">
+            </div>
+            <div class="hobity-9">
+            <h1>敲代码?????Σ( ° △ °|||)</h1>
+            </div>
+        </div>
+        <div class="show">
+            <div class="show-f">
+                <p id="show" name="show">作品展示</p>
+                <p>只接受夸奖，不需要批评！</p>
+                <div class="show-1">
+                    <a href="作业/1/个人网站.html">
+                        <img src="images/捕获.JPG" alt="" >
+                    </a>
+                </div>
+                <div class="show-2">
+                    <a href="作业/1/诗意生活.html">
+                        <img src="images/捕获1.JPG" alt="">
+                    </a>
+                </div>
+                <div class="show-3">
+                    <a href="作业/2/远大物产.html">
+                        <img src="images/捕获2.JPG" alt="" >
+                    </a>
+                </div>
+                <div class="show-4">
+                    <a href="作业/3/家居医生网.html">
+                        <img src="images/捕获4.JPG" alt="" >
+                    </a>
+                </div>
+            </div>
+            <div class="show-s">
+                <div class="show-5">
+                    <a href="作业/家居生活/家居生活 .html">
+                        <img src="images/捕获5.JPG" alt="" >
+                    </a>
+                </div>
+                <div class="show-6">
+                    <a href="作业/木兮地板/地板.html" >
+                        <img src="images/捕获6.JPG" alt="" >
+                    </a>
+                </div>
+                <div class="show-7">
+                    <a href="作业/小米官网/小米官网.html" >
+                        <img src="images/捕获7.JPG" alt="" >
+                    </a>
+                </div>
+                <div class="show-8">
+                    <a href="作业/小米商城/小米商城.html">
+                        <img src="images/捕获8.JPG" alt="">
+                    </a>
+                </div>
+                <div class="show-9">
+                    <a href="https://teresaxdx.gitee.io/millet_all_merchandise">
+                        <img src="images/小米.PNG" alt="">
+                    </a>
+                </div>
+                <div class="show-10">
+                    <a href=" https://teresaxdx.gitee.io/millet_box">
+                        <img src="images/小米盒子.PNG" alt="" >
+                    </a>
+                </div>
+                <div class="show-11">
+                    <a href="https://teresaxdx.gitee.io/millet_contract_machine" >
+                        <img src="images/小米合约机.PNG" alt="" >
+                    </a>
+                </div>
+                <div class="show-12">
+                    <a href="https://teresaxdx.gitee.io/millet_service" >
+                        <img src="images/小米服务.PNG" alt="" >
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="one">
+
+            </div>
+            <div class="fix">
+        
+            </div>
+            <script>
+                /* scrollTop<70,fix隐藏；scrollTop>70,fix显示   */
+            $(window).scroll(function(){
+                var scroll = $(window).scrollTop();
+                console.log(scroll);
+                if(scroll>70){
+                    $(".fix").fadeIn(300)
+                }else{
+                    $(".fix").fadeOut(300)
+                }
+            })
+        
+            $(".fix").click(function(){
+                $("html,body").animate({ scrollTop:0},300)
+            })
+                </script>
+
+    </div>  
+</body>
+</html>
